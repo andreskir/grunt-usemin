@@ -1,5 +1,5 @@
 {
-  "name": "grunt-usemin",
+  "name": "grunt-usemin-for-jade",
   "version": "2.0.1",
   "description": "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views).",
   "keywords": [
@@ -10,13 +10,13 @@
     "css",
     "optimize"
   ],
-  "homepage": "https://github.com/yeoman/grunt-usemin",
-  "bugs": "https://github.com/yeoman/grunt-usemin/issues",
+  "homepage": "https://github.com/andreskir/grunt-usemin",
+  "bugs": "https://github.com/andreskir/grunt-usemin/issues",
   "author": "The Yeoman Team",
   "main": "Gruntfile.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/yeoman/grunt-usemin.git"
+    "url": "git://github.com/andreskir/grunt-usemin.git"
   },
   "scripts": {
     "test": "grunt"
