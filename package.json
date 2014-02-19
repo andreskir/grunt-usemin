@@ -23,7 +23,8 @@
   },
   "dependencies": {
     "lodash": "~1.0.1",
-    "debug": "~0.7.2"
+    "debug": "~0.7.2",
+    "usemin-patterns": "~0.1.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
