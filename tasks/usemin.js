@@ -47,7 +47,7 @@ var getLocator = function (grunt, options) {
 // ### Usemin
 
 // Replaces references to non-optimized scripts or stylesheets
-// into a set of HTML files (or any templates/views).
+// into a set of Jade files (or any templates/views).
 //
 // The users markup should be considered the primary source of information
 // for paths, references to assets which should be optimized.We also check
@@ -61,15 +61,15 @@ var getLocator = function (grunt, options) {
 //
 // #### Usemin-handler
 //
-// A special task which uses the build block HTML comments in markup to
+// A special task which uses the build block Jade comments in markup to
 // get back the list of files to handle, and initialize the grunt configuration
 // appropriately, and automatically.
 //
-// Custom HTML "block" comments are provided as an API for interacting with the
+// Custom Jade "block" comments are provided as an API for interacting with the
 // build script. These comments adhere to the following pattern:
 //
 //     <!-- build:<type> <path> -->
-//       ... HTML Markup, list of script / link tags.
+//       ... Jade, list of script / link tags.
 //     <!-- endbuild -->
 //
 // - type: is either js or css.
@@ -85,7 +85,7 @@ var getLocator = function (grunt, options) {
 //    <!-- endbuild -->
 //
 //
-// Internally, the task parses your HTML markup to find each of these blocks, and
+// Internally, the task parses your Jade to find each of these blocks, and
 // initializes for you the corresponding Grunt config for the concat / uglify tasks
 // when `type=js`, the concat / cssmin tasks when `type=css`.
 //
@@ -96,7 +96,7 @@ module.exports = function (grunt) {
   var ConfigWriter = require('../lib/configwriter');
   var _ = grunt.util._;
 
-  grunt.registerMultiTask('usemin', 'Replaces references to non-minified scripts / stylesheets', function () {
+  grunt.registerMultiTask('usemin-for-jade', 'Replaces references to non-minified scripts / stylesheets', function () {
     var debug = require('debug')('usemin:usemin');
     var options = this.options({
       type: this.target
@@ -137,7 +137,7 @@ module.exports = function (grunt) {
     });
   });
 
-  grunt.registerMultiTask('useminPrepare', 'Using HTML markup as the primary source of information', function () {
+  grunt.registerMultiTask('useminPrepare', 'Using Jade as the primary source of information', function () {
     var options = this.options();
     // collect files
     var dest = options.dest || 'dist';
@@ -146,7 +146,7 @@ module.exports = function (grunt) {
 
     grunt.log
       .writeln('Going through ' + grunt.log.wordlist(this.filesSrc) + ' to update the config')
-      .writeln('Looking for build script HTML comment blocks');
+      .writeln('Looking for build script Jade comment blocks');
 
     var flow = getFlowFromConfig(grunt.config('useminPrepare'), this.target);
 
